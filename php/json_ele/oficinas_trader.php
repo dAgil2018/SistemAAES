@@ -71,21 +71,14 @@
                                     $html.="<td>$row[contacto_financiero]</td>";
                                     $html.="<td>$row[contacto_documentos]</td>";
 
+                                    $html.="<td class='text-center'>";
+                                  
+                                            $html.="<div class='btn-group btn-group-xs'>
+                                                        <a href='javascript:void(0)' id='a_datos' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-ctrader='$row[codigo_trader]' data-ccontrato='$row[codigo_contrato]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-cpostal ='$row[codigo_postal]' data-conoperativo ='$row[contacto_operativo]' data-concomercial ='$row[contacto_comercial]' data-otros ='$row[otros]' data-confinanciero ='$row[contacto_financiero]' data-condocumentos ='$row[contacto_documentos]' data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' class='text-center' ><i class='fa fa-eye pull-right'></i></a>
+                                                    </div>";
+                                    $html.="</td>";
 
-                                    $html.="<td class='text-center'>
-                                        <div class='btn-group'>
-                                        <a href='javascript:void(0)' data-toggle='dropdown' class='btn btn-alt btn-primary dropdown-toggle'>Seleccione <span class='caret'></span></a>
-                                            <ul class='dropdown-menu dropdown-custom text-left'>
-                                                <li class='dropdown-header'>Opciones</li>
-                                                <li>
-                                            <a id='a_datos' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-ctrader='$row[codigo_trader]' data-ccontrato='$row[codigo_contrato]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-cpostal ='$row[codigo_postal]' data-conoperativo ='$row[contacto_operativo]' data-concomercial ='$row[contacto_comercial]' data-otros ='$row[otros]' data-confinanciero ='$row[contacto_financiero]' data-condocumentos ='$row[contacto_documentos]' data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' ><i class='fa fa-eye pull-right'></i>Ver Datos</a>
-
-                                            </li>
-                                             
-                                             
-
-                                        </div>
-                                    </td>";
+                                      
                                         
                                 }
                             }

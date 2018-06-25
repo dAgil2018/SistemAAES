@@ -353,7 +353,7 @@
     $(function(){
         $(document).on("click", "#a_datos", function (e) {
             var elem=$(this);
-            var id_traido = elem.attr('data-id');
+            var id_traido = elem.attr('data-iid');
             
             console.log("El id que trae",id_traido);
             var datos = { eltrader:id_traido,des:"2"};
