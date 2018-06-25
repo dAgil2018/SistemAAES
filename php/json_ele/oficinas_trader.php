@@ -76,7 +76,7 @@
                                             $html.="<div class='btn-group btn-group-xs'>
                                                         <a href='javascript:void(0)' id='a_datos' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-ctrader='$row[codigo_trader]' data-ccontrato='$row[codigo_contrato]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-cpostal ='$row[codigo_postal]' data-conoperativo ='$row[contacto_operativo]' data-concomercial ='$row[contacto_comercial]' data-otros ='$row[otros]' data-confinanciero ='$row[contacto_financiero]' data-condocumentos ='$row[contacto_documentos]' data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' class='text-center' ><i class='fa fa-eye pull-right'></i></a>
                                                     </div>";
-                                    $html.="</td>";
+                                    $html.="</td>";//cambio
 
                                       
                                         
