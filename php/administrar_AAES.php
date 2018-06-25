@@ -76,19 +76,24 @@
                             echo"<td>$row[contacto_operador]</td>";
                             echo"<td>$row[contacto_comercial]</td>";
                             echo"<td>$row[contacto_documentos]</td>";
+                            echo"<td class='text-center'>
+                                    <div class='btn-group'>
+                                    <a href='javascript:void(0)' data-toggle='dropdown' class='btn btn-alt btn-primary dropdown-toggle'>Seleccione <span class='caret'></span></a>
+                                    <ul class='dropdown-menu dropdown-custom text-left'>
+                                        <li class='dropdown-header'>Opciones</li>
+                                        <li>
+                                        <a id='a1' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-ctrader='$row[codigo_trader]' data-ccontrato='$row[codigo_contrato]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-cpostal ='$row[codigo_postal]' data-conoperativo ='$row[contacto_operativo]' data-concomercial ='$row[contacto_comercial]' data-otros ='$row[otros]' data-confinanciero ='$row[contacto_financiero]' data-condocumentos ='$row[contacto_documentos]' data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' ><i class='fa fa-pencil pull-right'></i>Editar Oficina</a>
 
-
-                                    echo"<td class='text-center'>
-                                    <div class='btn-group btn-group-xs'>
-                                        <a id='a1' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-identificador='$row[identificador]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-telefono ='$row[telefono]' data-fax ='$row[fax_ingresado]' data-correo ='$row[correo]' data-tax ='$row[TAX_ID]' data-id ='$row[correo]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' class='btn btn-default'><i class='fa fa-pencil'></i></a>
-                                        <a data-correo ='$row[correo]' data-elid='$row[id]' id='btn_oficina' data-toggle='tooltip' title='Agregar oficina' class='btn btn-xs btn-success'><i class='fa fa-plus'></i></a>
-                                         <a data-correo ='$row[correo]' data-elid='$row[id]' id='btn_actualizar_oficina' data-toggle='tooltip' title='Actualizar oficina' class='btn btn-xs btn-info'><i class='fa fa-wrench'></i></a>
-                                        <a data-correo ='$row[correo]' id='btneliminar' data-toggle='tooltip' title='Eliminar' class='btn btn-xs btn-danger'><i class='fa fa-times'></i></a>
-                                        
+                                        </li>
+                                        <li class='divider'></li>
+                                        <li>
+                                        <a data-correo ='$row[id]' id='btneliminar' data-toggle='tooltip' title='Eliminar' ><i class='fa fa-trash pull-right'></i>Eliminar Oficina</a>
+                                        </li>
 
                                     </div>
                                 </td>";
-                                
+
+                            
                             }
                         }
                 

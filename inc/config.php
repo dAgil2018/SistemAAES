@@ -165,7 +165,7 @@ if($_SESSION['nivel']=='1'){
                 ),
                 array(
                     'name'  => 'Administrar Asociación',
-                    //'url'   => 'actualizar_trader.php'
+                    'url'   => 'administrar_AAES.php?id='.date("Yidisus")
                 ),
                 array(
                     'name'  => 'Agregar Empleados',
