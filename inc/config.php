@@ -2,13 +2,19 @@
 
 
 @session_start(); 
+/***contantes para mensajes en ventanas***/
+define("ACTUALIZAR", "Actualizar Datos");
+define("CERRAR_MODAL", "Cerrar");
+
+/***array para el menu*/
+
 $template = array(
-    'name'              => '',
+    'name'              => 'Sistema Informático: Leviatan',
     'version'           => '1',
-    'author'            => '',
+    'author'            => 'Estudio Agil',
     'robots'            => 'noindex, nofollow',
-    'title'             => '',
-    'description'       => '',
+    'title'             => 'Asociación Azucarera de El Salvador',
+    'description'       => 'Sistema Informatico para la Gestión de contenedores de la Asociación Azucarera de El Salvador',
     'page_preloader'    => false,
 
     // true                     enable main menu auto scrolling when opening a submenu

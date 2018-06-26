@@ -56,7 +56,7 @@
                 ?>
 
                 <?php 
-                    $sql = "SELECT 
+                    $sql = "SELECT id,
                         nombre,telefono,fax,contacto_operador,contacto_comercial,contacto_documentos,direccion,email
                     FROM
                         asociacion_aaes
@@ -77,12 +77,12 @@
                             echo"<td>$row[contacto_comercial]</td>";
                             echo"<td>$row[contacto_documentos]</td>";
                             echo"<td class='text-center'>
-                                    <div class='btn-group'>
+                                    <div class='btn-group' id='dropdown_aderecha'>
                                     <a href='javascript:void(0)' data-toggle='dropdown' class='btn btn-alt btn-primary dropdown-toggle'>Seleccione <span class='caret'></span></a>
                                     <ul class='dropdown-menu dropdown-custom text-left'>
                                         <li class='dropdown-header'>Opciones</li>
                                         <li>
-                                        <a id='a1' data-iid ='$row[id]' data-coficina='$row[codigo_oficina]' data-ctrader='$row[codigo_trader]' data-ccontrato='$row[codigo_contrato]' data-direccion='$row[direccion]' data-nombre ='$row[nombre]' data-cpostal ='$row[codigo_postal]' data-conoperativo ='$row[contacto_operativo]' data-concomercial ='$row[contacto_comercial]' data-otros ='$row[otros]' data-confinanciero ='$row[contacto_financiero]' data-condocumentos ='$row[contacto_documentos]' data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' ><i class='fa fa-pencil pull-right'></i>Editar Oficina</a>
+                                        <a id='a1' data-iid ='$row[id]' data-nombre='$row[nombre]' data-direccion='$row[direccion]' data-contacto_documentos='$row[contacto_documentos]' data-contacto_comercial='$row[contacto_comercial]' data-operador='$row[contacto_operador]' data-email='$row[email]' data-fax='$row[fax]' data-telefono='$row[telefono]'  data-id ='$row[id]' data-toggle='tooltip' title='Editar' href='javascript:void(0)' data-toggle='modal' ><i class='fa fa-pencil pull-right'></i>Editar Oficina</a>
 
                                         </li>
                                         <li class='divider'></li>
@@ -110,110 +110,96 @@
  
 
 
-    <div id="modal_ele" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3 class="modal-title">Editar Datos</h3>
-                </div>
-                <div class="modal-body">
-                    
-                    <form method="post" id="registro" name="registro" class="form-horizontal animation-fadeIn">
-                        <input type="hidden" name="des" value="actualizar">
-                        <input type="hidden" id = 'correo1' name="correo" value="">
-
-                        <div class="row ">
-                            <div class="col-md-6">
-                                <div class="block">
-                                    
-                                    <div class="block-title">
-                                         
-                                        <h2><strong>Información de la</strong> Empresa</h2>
-                                    </div>
-                                    
-                                 
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <label for="nombre">Nombre(*):</label>
-                                                <input data-toggle="tooltip" title="Este campo solo permite letras mayusculas, minusculas y espacios!" type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese su nombre completo" autocomplete="off">
-                                            </div>  
-                                        </div>
-                                        <div class="form-group">
-                                                <div class="col-xs-12">
-                                                    <label for="telefono">Télefono(*):</label>
-                                                    <input data-toggle="tooltip" title="Este campo solo permite letras mayusculas, minusculas y espacios!" type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese su numero de telefono" autocomplete="off">    
-                                                </div>    
-                                        </div>
-                                        <div class="form-group">
-                                                <div class="col-xs-12">
-                                                    <label for="telefono">FAX(*):</label>
-                                                    <input data-toggle="tooltip" title="Este campo solo permite letras mayusculas, minusculas y espacios!" type="text" id="fax" name="fax" class="form-control" placeholder="Ingrese su numero de fax" autocomplete="off">    
-                                                </div>    
-                                        </div>
-                                        <div class="form-group">
-                                                <div class="col-xs-12">
-                                                    <label for="direccion">Dirección(*):</label>
-                                                    <textarea id="direccion" name="direccion" rows="3" class="form-control" placeholder="Escriba su dirección" autocomplete="off"></textarea>   
-                                                </div>    
-                                        </div>
-                                        <div class="form-group">
-                                                <div class="col-xs-12">
-                                                    <label for="identificador">Identificador(*):</label>
-                                                    <input data-toggle="tooltip" title="Este campo solo permite letras mayusculas, minusculas y espacios!" type="text" id="identificador" name="identificador" class="form-control" placeholder="Ingrese el identificador de la empresa" autocomplete="off">    
-                                                </div>    
-                                        </div>
-
-                                                 
-                                                                         
-                                </div>
-                                
+    <div id="modal_eleAAES" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+       <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Editar Datos</h3>
+             </div>
+             <div class="modal-body">
+                <form action="" method="post" id="actualizacion_AAES" name="actualizacion_AAES" class="form-horizontal animation-fadeIn">
+                    <input type="hidden" name="elid" id="elid" >
+                    <input type="hidden" name="anterior" id="anterior">
+                   <div class="row">
+                      <div class="col-md-6">
+                         <div class="block">
+                            
+                            <div class="block-title">
+                               <h2><strong>Información de</strong> Asociación</h2>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="block">
-                                    
-                                    <div class="block-title">
-                                         
-                                        <h2><strong>Información de la</strong> Cuenta</h2>
-                                    </div>
-                                    
-                                     
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <label for="email">Correo(*)</label>
-                                                <input type="email" id="email" onblur="validar(this)" name="email" class="form-control" placeholder="Ingrese su correo">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <label for="coficina">Codigo de la Empresa(*)</label>
-                                                <input data-toggle="tooltip" title="Este campo solo permite letras numeros!" type="coficina" id="coficina" onblur="validar(this)" name="coficina" class="form-control" placeholder="Ingrese el código de la oficina">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <label for="tax">Codigo de Impuesto(*):</label>
-                                                <input data-toggle="tooltip" title="Este campo solo permite letras numeros!" type="text" id="tax" name="tax" class="form-control" placeholder="Ingrese el código de impuesto" autocomplete="off">
-                                            </div>  
-                                        </div>   
-                                    
-                                </div>
-                                
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="nombre_asociacion">Nombre(*):</label>
+                                  <input data-toggle="tooltip" title="Este campo solo permite letras mayusculas, minusculas y espacios!" type="text" id="nombre_asociacion" name="nombre_asociacion" class="form-control" placeholder="Ingrese el nombre de la asociación" autocomplete="off">  
+                               </div>
                             </div>
-                             
-                        </div>
+                             <!--Telefono-->
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="telefono">Télefono(*):</label>
+                                  <input data-toggle="tooltip" title="Este campo permite solo números y debe de comenzar con 2,6 o 7" type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese el télefono" autocomplete="off">
+                               </div>
+                            </div>
+                             <!--FAX-->
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="fax">FAX:</label>
+                                  <input data-toggle="tooltip" title="Este campo permite solo números y debe de comenzar con 2,6 o 7" type="text" id="fax" name="fax" class="form-control" placeholder="Ingrese el FAX" autocomplete="off">    
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="email">Correo</label>
+                                  <input type="email" id="email" onblur="validar(this)" name="email" class="form-control" placeholder="Ingrese su correo">
+                               </div>
+                            </div>
+                         </div><!-- end block-->
+                      </div>
 
-                    </form>
+                      <div class="col-md-6">
+                         <div class="block">
+                            <div class="block-title">
+                               <h2><strong>Datos de </strong> Contactos</h2>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="operador">Contacto Operador</label>
+                                  <input type="text" id="operador"  name="operador" class="form-control" placeholder="Ingrese el contacto del Operador">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="contacto_comercial">Contacto Comercial</label>
+                                  <input type="text" id="contacto_comercial"  name="contacto_comercial" class="form-control" placeholder="Ingrese el Contacto Comercial">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="contacto_documentos">Contacto Documentos</label>
+                                  <input type="text" id="contacto_documentos"  name="contacto_documentos" class="form-control" placeholder="Ingrese el Contacto de Documentos">
+                               </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="col-xs-12">
+                                  <label for="direccion">Dirección(*):</label>
+                                  <textarea id="direccion" name="direccion" rows="1" class="form-control" placeholder="Escriba la dirección de la Asociación"></textarea>    
+                               </div>
+                            </div>
+                         </div><!-- end block-->
+                      </div>
+                   </div>
 
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" id="m_save" class="btn btn-sm btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
+                
+             </div>
+          </div>
+          <div class="modal-footer">
+             <button type="button"  class="btn btn-sm btn-default" data-dismiss="modal"><?php echo CERRAR_MODAL; ?></button>
+             <button type="submit" id="m_save" class="btn btn-sm btn-info"><?php echo ACTUALIZAR; ?></button>
+          </div>
+            </form>
+       </div>
     </div>
 
 
@@ -225,162 +211,66 @@
 <!-- Load and execute javascript code used only in this page -->
 <script src="../js/pages/ecomProducts.js"></script>
 <script>$(function(){ EcomProducts.init(); });</script>
-
+<script src="../js/pages/Validaciones_AAES.js?id=<?php echo date('Yidisus'); ?>"></script>
 
 <script>
+    function validar(e){
+        console.log("salado");
+        var de = $(e).val();
+        var anterior = $("#anterior").val();
+        var eledata = {variable:'3', email:de,anterior:anterior};
+        $.ajax({
+            dataType: "json",
+            method: "POST",
+            url:'json_ele/administracion_AAES.php',
+            data : eledata,
+        }).done(function(msg) {
+            console.log(msg);
+            if(msg.exito){
+                console.log(msg.exito);
+            }else if (msg.error){
+                 $.bootstrapGrowl('<h4>Error !</h4> <p>El correo ya existe</p>', {
+                    type: "danger",
+                    delay: 2500,
+                    allow_dismiss: true
+                });
+                $(e).val("");
+                console.log(msg.error);
+            }
+            else{
+               console.log(msg.error2);
+            }
+
+
+        });
+
+    }
+
+</script>
+<script>
     $(function(){
+        Validaciones_AAES.init(); 
         /****abrir modal*******/
-        
-        $(document).on("click", "#btneliminar", function (e) {
+       $(document).on("submit", "#actualizacion_AAES", function (e) {
+            console.log("eleangel");
+            e.preventDefault();
             var elem=$(this);
-            var elcorre = elem.attr('data-correo');
-            console.log("llega correo1",elcorre);
-            
-            swal({
-                title: '¿Eliminar empresa?',
-                text: "",
-                html: 
-                '<br><button class="btn btn-danger" data-elcorreo ="'+elcorre+'" id="btn_eliminar" data-toggle="tooltip" data-original-title="Eliminar"><i class="fa fa-bomb"></i> Eliminar</button> ' +
-                '<button class="btn btn-warning" id="btn_cancelar" data-toggle="tooltip" data-original-title="Cancelar"><i class="fa fa-times"></i> Cancelar</button>'
-                ,
-                type: 'info',
-                showCancelButton: false,
-                showConfirmButton: false,
-                allowEscapeKey:false,
-                allowOutsideClick:false,
-            });
+            var elcorreo = elem.attr('data-correo');
+            console.log("llega correo3 listo para ajax",elcorreo);
+            //funcion ajax eliminar
 
-
-        });
-            
-            $(document).on('click', "#btn_cancelar", function() {
-                swal.close();
-            });
-
-
-
-            $(document).on('click', "#btn_eliminar", function(e) {
-                swal.close();
-                var elem=$(this);
-                var elcorreo = elem.attr('data-elcorreo');
-                console.log("llega correo2",elcorreo);
-                swal({
-                title: '¿Esta seguro?',
-                text: "",
-                html: '<p class="h4 mensajes_alert">No hay vuelta atras</p><br><button class="btn btn-danger" data-correo="'+elcorreo+'" id="btn_sip" data-toggle="tooltip" data-original-title="Si, eliminar"><i class="fa fa-bomb"></i> Si, eliminar</button> ' +
-                '<button class="btn btn-info" id="btn_nop" data-toggle="tooltip" data-original-title="No"><i class="fa fa-times"></i> No</button>',
-                type: 'info',
-                showCancelButton: false,
-                showConfirmButton: false,
-                allowEscapeKey:false,
-                allowOutsideClick:false,
-                });
-            });
-            
-            $(document).on('click', "#btn_sip", function() {
-                var elem=$(this);
-                var elcorreo = elem.attr('data-correo');
-                console.log("llega correo3 listo para ajax",elcorreo);
-                //funcion ajax eliminar
-
-                swal.close();
-                var get = { elcorreo:elcorreo,des:"eliminar"};
-                console.log(get);
-                $.ajax({
-                    dataType: "json",
-                    method: "POST",
-                    url:'json/eliminar_empresa.php',
-                    data : get,
-                }).done(function(msg) {
-                    console.log(msg);
-                     if(msg.exito[0]){
-                            $.bootstrapGrowl('<h4>Excelente !</h4> <p>Datos Eliminados!</p>', {
-                            type: "success",
-                            delay: 2500,
-                            allow_dismiss: true
-                        });
-
-                        NProgress.done();
-                        location.reload();
-                        /*var timer=setInterval(function(){
-                            
-                            clearTimeout(timer);
-                        },100);*/
-
-                        
-                    }else if (msg.exito[4]){
-                        console.log('Error fatal en la base de datos, contacte a su administrador');
-                    }
-                    else {
-                        NProgress.done();
-                        $.bootstrapGrowl('<h4>Error!</h4> <p>el cliente  no ha sido elimnado!</p>', {
-                            type: "danger",
-                            delay: 2500,
-                            allow_dismiss: true
-                        });
-                    }
-                });
-
-            });
-
-             $(document).on('click', "#btn_nop", function() {
-                swal.close();
-            });
-
-
-
-        $(document).on('click', "#btn_enviar", function() {
             swal.close();
-        });
-
-
-        $(document).on("click", "#btn_oficina", function (e) {
-            var elem=$(this);
-            var trader =elem.attr('data-elid');
-            $(location).attr('href','nueva_oficina_trader.php?id='+trader+'&date=<?php echo date("Yhmsi") ?>');
-
-        });
-
-         $(document).on("click", "#btn_actualizar_oficina", function (e) {
-            var elem=$(this);
-            var trader =elem.attr('data-elid');
-            $(location).attr('href','actualizar_oficinas_trader.php?id='+trader+'&date=<?php echo date("Yhmsi") ?>');
-
-        });
-
-        $(document).on("click", "#a1", function (e) {
-            var elem=$(this);
-            $("#nombre").val(elem.attr('data-nombre'));
-            $("#telefono").val(elem.attr('data-telefono'));
-            $("#email").val(elem.attr('data-correo'));
-            console.log("el nivel",elem.attr('data-nivel'));
-            $("#fax").val(elem.attr('data-fax'));
-            $("#direccion").val(elem.attr('data-direccion'));
-            $("#tax").val(elem.attr('data-tax'));
-            $("#coficina").val(elem.attr('data-coficina'));
-            $("#identificador").val(elem.attr('data-identificador'));
-            $("#correo1").val(elem.attr('data-correo'));
-            //$("#rol").select2("val",elem.attr('data-nivel')); 
-            $("#modal_ele").modal({
-                show: 'false'
-            });
-        });
-
-        /******cerrar modal*******/
-        $(document).on("click", "#m_save", function (e) {
-            $("#modal_ele").modal('toggle'); 
-            var get = $("#registro").serialize();
+            var get = { elcorreo:elcorreo,des:"eliminar"};
             console.log(get);
-                $.ajax({
+            $.ajax({
                 dataType: "json",
                 method: "POST",
                 url:'json/eliminar_empresa.php',
                 data : get,
             }).done(function(msg) {
-                console.log("esto trae",msg);
-                
-                if(msg.exito){
-                        $.bootstrapGrowl('<h4>Excelente !</h4> <p>Datos Actualizados!</p>', {
+                console.log(msg);
+                 if(msg.exito[0]){
+                        $.bootstrapGrowl('<h4>Excelente !</h4> <p>Datos Eliminados!</p>', {
                         type: "success",
                         delay: 2500,
                         allow_dismiss: true
@@ -392,7 +282,10 @@
                         
                         clearTimeout(timer);
                     },100);*/
+
                     
+                }else if (msg.exito[4]){
+                    console.log('Error fatal en la base de datos, contacte a su administrador');
                 }
                 else {
                     NProgress.done();
@@ -402,24 +295,33 @@
                         allow_dismiss: true
                     });
                 }
-
             });
+
         });
 
         $(document).on("click", "#a1", function (e) {
-            var valor = $(this).attr('data-id');
-            
+            var elem=$(this);
+
+            $("#elid").val(elem.attr('data-iid'));
+            $("#nombre_asociacion").val(elem.attr('data-nombre'));
+            $("#telefono").val(elem.attr('data-telefono'));
+            $("#email").val(elem.attr('data-email'));
+            $("#anterior").val(elem.attr('data-email'));
+            $("#fax").val(elem.attr('data-fax'));
+            $("#operador").val(elem.attr('data-operador'));
+            $("#contacto_comercial").val(elem.attr('data-contacto_comercial'));
+            $("#contacto_documentos").val(elem.attr('data-contacto_documentos'));
+            $("#direccion").val(elem.attr('data-direccion'));
+            $("#modal_eleAAES").modal({
+                show: 'false'
+            });
         });
 
-        $(document).on("click", "#a3", function (e) {
+        /******cerrar modal*******/
+         
 
-            var email = $(this).attr('data-correo');
-            var id = $(this).attr('data-iid');
-            
-            $(location).attr('href','actualizar_perfiles.php?id='+id+'&date=<?php echo date("Yhmsi") ?>');
-                    clearTimeout(timer);
-        });
-
+        
+         
     });
 
 </script>

@@ -61,4 +61,21 @@
             font-size: 12px !important;
             font-weight: 600;
         }
+
+        #modal_eleAAES .modal-content {
+            background-color: #fff;
+            border: none !important;
+            border: none !important;
+            border-radius: initial !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box !important;
+            outline: 0;
+            border-radius: initial !important;
+        }
+        #dropdown_aderecha ul.dropdown-menu {
+            right: 0 !important;
+            left: inherit !important;
+        }
     </style>
